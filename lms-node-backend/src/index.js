@@ -7,7 +7,10 @@ const app = express()
 const PORT = 8080
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }))
+app.use(cors({ 
+  origin: ['http://localhost:3000', 'https://library-frontend.vercel.app'], // ← updated
+  credentials: true 
+}))
 app.use(express.json())
 
 // Routes
@@ -29,3 +32,6 @@ app.listen(PORT, () => {
   console.log('  Password: admin123')
   console.log('========================================')
 })
+
+// ← ADD THIS LINE (required for Vercel)
+export default app;
