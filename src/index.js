@@ -26,6 +26,9 @@ app.use(express.json())
 app.use('/api/auth', authRoutes)
 app.use('/api/books', bookRoutes)
 
+import aiRoutes from './routes/ai.js'
+app.use('/api/ai', aiRoutes)
+
 // Health check
 app.get('/', (req, res) => {
   res.json({ message: 'LibraryMS Backend is running!', status: 'OK' })
